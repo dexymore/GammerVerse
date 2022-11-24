@@ -1,0 +1,59 @@
+#navbarcolor{
+    position: fixed !important;
+   width: 100%;
+    z-index: 99;
+    background-color: #8b8b8b;
+    top: 0;
+
+}
+#navbarcolor a{
+padding-top: 5px;
+
+margin: 0px ;
+    color: white;
+}
+#navbarcolor a:hover{
+    color: #ff731d;
+}
+
+
+@media screen and (min-width: 0) and (max-width: 600px){
+#navbarcolor{
+    position: fixed !important;
+   width: 100% !important;
+    z-index: 99;
+    background-color: #2C3E50;
+
+
+}
+
+#navbarcolor a{
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+
+    }
+
+    #navbarcolor li{
+    
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100px;
+    
+        }
+
+        #navbarcolor ul{
+    
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100px;
+        
+            }
+}
+body{
+    overflow-x: hidden !important;
+}
