@@ -44,7 +44,7 @@ async function  sendToApi()
 // 
 //
 {
-let{data}=await axios.post('https://route-egypt-api.herokuapp.com/signup',userinfo)/// calling the api and deliver the main object to it
+let{data}=await axios.post('https://route-movies-api.vercel.app/signup',userinfo)/// calling the api and deliver the main object to it
 if(data.message=='success'){
 
     isloading(false) ////if there is no erors then reset loading spinner
