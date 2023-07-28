@@ -6,7 +6,7 @@ import banner from "../assets/pacman.jpg"
 function Home({userdata}) {
 console.log()
  const [games, setGames] = useState([])
-let name=userdata.first_name /// getting the user firstname to wellcoming him at the website
+/// getting the user firstname to wellcoming him at the website
 
 useEffect(function () {
     
@@ -19,7 +19,7 @@ useEffect(function () {
 <>
 <div className='banner mt-5 container'>
 <div><img src={banner}></img></div>
-<h2 className='welcome text-light'>welcome <span className='userName'>{userdata.first_name!= null? name:""}</span> at <span className='GammingSpot'>GAMMING SPOT</span></h2>
+<h2 className='welcome text-light'>welcome at <span className='GammingSpot'>GAMMING SPOT</span></h2>
 <h3 className='welcome mt-5 hospitality'> Happy Gamming !</h3>
 
 </div>

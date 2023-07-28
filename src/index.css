@@ -162,3 +162,90 @@ footer {
     margin: 0;
     }
   }
+  .backg {
+    overflow: hidden;
+    width: 100%;
+    background-image: url("881338.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+.layout {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-size: cover;
+    height: 100vh;
+}
+
+.hero{
+color: white;
+}
+.hero h1{
+
+
+font-family:   'Helvetica Neue';
+font-size: 72px;
+font-style: normal;
+font-variant-caps: normal;
+font-variant-east-asian: normal;
+font-variant-ligatures: normal;
+font-variant-numeric: normal;
+font-weight: 600;
+}
+.hero h4{
+font-size:40px;
+color:  #eaffeabd;
+
+}
+.hero h1,h2{
+margin-bottom:6%;
+}
+.hero h2::after {
+content: " |";
+animation-name: typing;
+animation-duration: 12s;
+animation-iteration-count: infinite;
+}
+.navbar-toggler-icon {
+background-color: white ;
+}
+
+/* Custom styles for the buttons */
+.custom-btn {
+  margin-top: 10px;
+  font-size: 18px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  outline: none !important;
+  background-color: #60b4a359;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  -webkit-transition:;
+  -moz-transition:;
+  -ms-transition:;
+  -o-transition:;
+}
+
+.custom-btn:hover {
+  /* Add hover effect */
+  background-color: #97a597; /* Change to your desired hover color */
+  color: #fff; /* Change to your desired hover text color */
+}
+.btn-space {
+  width: 20px; /* Adjust the width to create the desired space */
+}
+.landingButtons{
+  flex-direction: row;
+  justify-content: space-between;
+
+}

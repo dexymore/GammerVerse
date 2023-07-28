@@ -1,13 +1,12 @@
 import React from 'react'
 import  { useEffect } from 'react'
-import {getGames} from "../FetchData"
+// import {getGames} from "../FetchData"
+import axios from 'axios'
 import Element from '../element/Element';
 import { useState } from 'react';
 function Plat({platform}) {
 // plat function acceept one parameter whichn is platform name the function get that parameter from app compnent and then pass it to x
 
- const x={platform}
-    const [gamespl, setGamespl] = useState([])
    
     const [count, setcount] = useState(20)
     const [all, setAll] = useState([])
@@ -17,14 +16,32 @@ function Plat({platform}) {
  
  
  }
+ let setdata =async function (param)
+ {
+     
+     const options = {
+    
+         params: {platform: `${param}`},
+         headers: {
+           'X-RapidAPI-Key': `${process.env.REACT_APP__API_KEY}`,
+           'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+         }
+       };
+       
+ 
+ 
+ 
+ const {data}=await axios.get('https://free-to-play-games-database.p.rapidapi.com/api/games',options)
 
+
+setAll(data)
+ 
+ }
 
    useEffect(function () {
-       
-/// the getgames function getting two parameters which are platform name and the next parameter is setting games array function to put the data into 
-    getGames(x.platform,setGamespl)
-        setAll(gamespl.slice(0,count)) /// then passing the first twenty elements to all array which letter will be shown to user as the real data
-   }, [gamespl]) /// updating the render whenever the gamespl array is changed
+       setdata(platform)
+
+   }, [platform]) 
    
     
      return (
@@ -32,10 +49,9 @@ function Plat({platform}) {
    <div className='container mt-5 '>  
    
    <div className='row justify-content-center align-items-center text-center'>
-   
-   {all.length>0?all.map((item,index)=><Element key={index}  item={item}/>):<i className='fas text-light reg fa-spinner fa-spin fa-4x'></i>}
+   {all.length>0?all.slice(0,count).map((item,index)=><Element key={index}  item={item}/>):<i className='fas text-light reg fa-spinner fa-spin fa-4x'></i>}
    </div> 
-   {all.length==gamespl.length?"": <button className='btn m-5 btn-primary' onClick={twenty}>load more games</button>}
+   {all.length>1 ? <button className="m-3 btn w-25 btn-primary" onClick={twenty}>more </button>:""}
    </div>
    
    

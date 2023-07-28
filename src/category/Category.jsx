@@ -1,6 +1,7 @@
 import React from 'react'
 import  { useEffect } from 'react'
-import {getGamesByCategory} from "../FetchData"
+// import {getGamesByCategory} from "../FetchData"
+import axios from 'axios'
 import Element from '../element/Element';
 import { useState } from 'react';
 
@@ -17,16 +18,38 @@ setcount(count+20)
 }
 
 
-    const gamescategory={category}
-       const [gamespl, setGamespl] = useState([])
+
+
+let setDataCategory= async function(param){
+   const options = {
+    
+     params: {category: `${param}`},
+     headers: {
+       'X-RapidAPI-Key': `${process.env.REACT_APP__API_KEY}`,
+       'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+     }
+   };
+ 
+ 
+
+ 
+ 
+
+ 
+ const {data}= await axios.get('https://free-to-play-games-database.p.rapidapi.com/api/games',options)
+ 
+ setAll(data)
+ 
+ }
       
       
       useEffect(function () {
           
-        getGamesByCategory(gamescategory.category,setGamespl)
-            setAll(gamespl.slice(0,count))
+         setDataCategory(category)
+            
+         
       
-      }, [gamespl])
+      }, [category])
       
        
         return (
@@ -35,10 +58,10 @@ setcount(count+20)
       
       <div className='row justify-content-center align-items-center text-center'>
    
-   {all.length>0?all.map((item,index)=><Element key={index}  item={item}/>):<i className='fas text-light reg fa-spinner fa-spin fa-4x'></i>}
+   {all.length>0?all.slice(0,count).map((item,index)=><Element key={index}  item={item}/>):<i className='fas text-light reg fa-spinner fa-spin fa-4x'></i>}
       </div> 
      
-      {all.length==gamespl.length?"": <button className='btn m-5 btn-primary' onClick={twenty}>load more games</button>}
+      {all.length>1 ? <button className="m-3 btn w-25 btn-primary" onClick={twenty}>more </button>:""}
       </div>
        
       

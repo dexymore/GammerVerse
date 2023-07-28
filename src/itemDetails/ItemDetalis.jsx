@@ -6,10 +6,27 @@ import {gameSpecs} from "../FetchData"
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-
+import axios from 'axios'
 function ItemDetalis() {
   let idParam=useParams()
   const [gameDetails, setgameDetails] = useState({})
+
+  let gameSpecsData= async function(param)
+  {
+    const options = {
+     
+      params: {id: `${param}`},
+      headers: {
+        'X-RapidAPI-Key': `${process.env.REACT_APP__API_KEY}`,
+        'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+      }
+    };
+  
+  
+     const {data}= await axios.get('https://free-to-play-games-database.p.rapidapi.com/api/game',options)
+  
+  setgameDetails(data)
+  }
 
 
   useEffect(() => {

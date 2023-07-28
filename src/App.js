@@ -14,6 +14,7 @@ import jwtDecode from "jwt-decode";
 import ProtectedRoute from "./protectedroute/ProtectedRoute";
 import { useEffect } from "react";
 import Notfound from "./notfound/Notfound";
+import Landing from "./landing/landing";
 
 function App() {
   const [userdata, setuserdata] = useState(null);
@@ -34,7 +35,8 @@ function App() {
       element: <Layout setuserdata={setuserdata} userdata={userdata}></Layout>,
       errorElement: <Notfound></Notfound>,
       children: [
-        { index: true, element: <Login></Login> },
+        { index: true, element: <Landing></Landing> },
+        { path:"login", element: <Login></Login> },
         { path: "Register", element: <Register></Register> },
         {
           path: "Home",
