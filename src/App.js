@@ -15,6 +15,7 @@ import ProtectedRoute from "./protectedroute/ProtectedRoute";
 import { useEffect } from "react";
 import Notfound from "./notfound/Notfound";
 import Landing from "./landing/landing";
+import ParticlesBackground from "./particesBackground/particesBackground";
 
 function App() {
   const [userdata, setuserdata] = useState(null);
@@ -35,7 +36,7 @@ function App() {
       element: <Layout setuserdata={setuserdata} userdata={userdata}></Layout>,
       errorElement: <Notfound></Notfound>,
       children: [
-        { index: true, element: <Landing></Landing> },
+        { index: true, element: <Landing></Landing>  },
         { path:"login", element: <Login></Login> },
         { path: "Register", element: <Register></Register> },
         {
