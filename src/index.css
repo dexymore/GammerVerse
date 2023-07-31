@@ -9,17 +9,12 @@ flex-direction: column;
 min-height: 100vh;
 
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+ 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
 .padsT{
 margin-top: 200PX !important;
 }
@@ -48,7 +43,7 @@ position: relative;
 
 body{
 
-  background-color: #1a374d;
+  background-color:  #24353F;
 }
 .bgcard{
 background-color: #406882;
@@ -191,7 +186,7 @@ color: white;
 .hero h1{
 
 
-font-family:   'Helvetica Neue';
+
 font-size: 72px;
 font-style: normal;
 font-variant-caps: normal;
@@ -269,3 +264,64 @@ background-color: white ;
 .btn{
   z-index:5 !important;
 }
+.logo{
+  color: #fff;
+
+text-shadow: 0 2px 1px #79a06d, 
+      -1px 3px 1px #82ad75, 
+      -2px 5px 1px #8ebf80;
+}
+
+.login{
+  background-color: #24353F;
+  box-shadow: 5px 5px 5px 5px;
+  text-align: center !important;
+  width: 45% !important;
+  border: transparent;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+}
+ 
+
+
+
+@media (max-width: 480px) {
+  /* CSS styles for small mobile phones (portrait) */
+
+  .login{
+    background-color: #24353F;
+    box-shadow: 5px 5px 5px 5px;
+    text-align: center !important;
+    width: 85% !important;
+    border: transparent;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+  /* CSS styles for small mobile phones (portrait) */
+
+  .login{
+    background-color: #24353F;
+    box-shadow: 5px 5px 5px 5px;
+    text-align: center !important;
+    width: 85% !important;
+    border: transparent;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+  }
+
+}
+

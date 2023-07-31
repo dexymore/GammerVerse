@@ -3,7 +3,7 @@ import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+ import { useEffect } from 'react'
 
 function Login({saveData}) {
 
@@ -49,29 +49,57 @@ function subMit(e)
     e.preventDefault() // this function is built in function to pervent the default behaviour of th
     sendToApi() ;
 }
-  return (
-<>
-<div className='container padsT  mt-5'>
-{error.length>0?<div className='mt-5 alert alert-danger m-1'>{error}</div>:""}
-    <form onSubmit={subMit}>
-    <div className="form-group mt-5">
-    <label for="email"><h3 className='text-muted mt-2 mb-3'>Email address</h3></label>
-    <input className="form-control" onChange={getUserinfo} id="email" name='email' ></input>
-   
-  </div>
-  <div className="form-group mt-2 ">
-    <label for="password"><h3 className='text-muted mt-2 mb-3'>password</h3></label>
-    <input className="form-control" type="password" onChange={getUserinfo} id="password" name='password' ></input>
-    
-  </div>
-  <button type='submit' className='btn btn-outline-info mt-3'> {loading==true?<i className="fas fa-spinner fa-spin "></i>:'login'}</button>
 
+
+
+
+
+
+return (
+  <div className='container padsT flex-column login d-flex align-items-center justify-content-center my-5 login p-5 mt-5 '>
+    {error.length > 0 ? <div className='mt-5 alert alert-danger m-1'>{error}</div> : ""}
+    <form onSubmit={subMit} className='w-75'>
+      <div className="form-group mt-5">
+        <label htmlFor="email"><h3 className='text-muted mt-2 mb-3'></h3></label>
+        <input className="form-control " onChange={getUserinfo} id="email" name='email' placeholder='email'></input>
+      </div>
+      <div className="form-group mt-2 ">
+        <label htmlFor="password"><h3 className='text-muted mt-2 mb-3'></h3></label>
+        <input className="form-control" type="password" onChange={getUserinfo} id="password" placeholder='password' name='password'></input>
+      </div>
+      <button type='submit' className='btn btn-outline-info mt-3'> {loading === true ? <i className="fas fa-spinner fa-spin "></i> : 'login'}</button>
     </form>
-    <p className='text-light mt-2 w-100'>don't you have an acount? <span>  <a className="nav-link active text-muted cursorpointer" onClick={registernavigation}>register</a></span></p>
-</div>
+    <p className='text-light mt-2 w-100'>don't you have an account? <span><a className="nav-link active text-muted cursorpointer" onClick={registernavigation}>register</a></span></p>
+  </div>
+);
 
-</>
-  )
+// return (
+// {/* <>
+//   <div className="container flex-column d-flex align-items-center justify-content-center my-5 login p-5">
+//     <h1>login system</h1>
+//     <div className="d-flex flex-column text-center w-75 p-3 child">
+// <form onSubmit={subMit}>
+//     <label htmlFor="email"><h3 className='text-muted mt-2 mb-3'>Email address</h3></label>
+//        <input className="form-control" onChange={getUserinfo} id="email" name='email'></input>
+
+
+//        <label htmlFor="password"><h3 className='text-muted mt-2 mb-3'>password</h3></label>
+//       <input className="form-control" type="password" onChange={getUserinfo} id="password" name='password'></input>
+// </form>
+//       <div className="d-flex align-items-center justify-content-center father">
+//       //       <button type='submit' className='btn btn-outline-info mt-3'> {loading === true ? <i className="fas fa-spinner fa-spin "></i> : 'login'}</button>
+//       </div>
+
+//     {error.length > 0 ? <div className='mt-5 alert alert-danger m-1'>{error}</div> : ""}
+
+//       <p className="m-3">don't have an account? <span><a href='/register'>sign up</a></span></p>
+//     </div>
+//   </div>
+// </> */}
+
+
+// )
+
 }
 
 export default Login
