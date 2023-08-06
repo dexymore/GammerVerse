@@ -9,7 +9,7 @@ function Layout({userdata,setuserdata}) {
   {
 localStorage.removeItem('userToken')
 setuserdata(null)
-navigate('/Login')  
+navigate('/')  
 
 }
 const isLandingRoute = window.location.pathname === '/'
