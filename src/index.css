@@ -85,6 +85,9 @@ input {
     padding: 0;
     margin: 0;
   }
+.notfound img{
+width: 80% !important;
+}
 }
 .backg {
   overflow: hidden;
@@ -196,6 +199,7 @@ h2 {
 }
 
 .login {
+  
   background-color: #24353f;
   box-shadow: 5px 5px 5px 5px;
   text-align: center !important;
@@ -731,21 +735,48 @@ z-index: 0;
   -webkit-transform: skewY(-1deg) rotate(181deg);
 }
 @media screen and (min-width: 0) and (max-width: 600px) {
+  .gamedescription{
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+  width: 100%;
+    color: #ffffff;
+    text-align: justify;
+    line-height: 1.5;
+    margin: 10px 0;
+    padding: 0 10px;
+  
+    border-radius: 4px;
+    padding: 10px;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    hyphens: auto;
+
+
+
+}
+  .descriptionparent{
+    width: 100%;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
   .wave3 {
     position: absolute;
-    top: -35%;
     left: 0;
     width: 100%;
     height: 120px;
     z-index: -5;
-    transform: skewY(5deg) rotate(180deg);
-    /*Applyskewandrotatetransformations*/
-    -webkit-transform: skewY(5deg) rotate(180deg);
-    -moz-transform: skewY(5deg) rotate(180deg);
-    -ms-transform: skewY(5deg) rotate(180deg);
-    -o-transform: skewY(5deg) rotate(180deg);
-    -webkit-transform: skewY(5deg) rotate(180deg);
-  }
+    transform: skewY(2deg) rotate(180deg);
+    /*Applyskewandrotatetransformations*/-webkit-transform: skewY(5deg) rotate(180deg);
+    -moz-transform: skewY(2deg) rotate(180deg);
+    -ms-transform: skewY(2deg) rotate(180deg);
+    -o-transform: skewY(2deg) rotate(180deg);
+    -webkit-transform: skewY(2deg) rotate(180deg);
+}
 }
 
 .play-section {
@@ -866,7 +897,7 @@ z-index: 0;
 .footer {
   background-color: #24262b;
   margin-top: 5%;
-  padding: 50px 0;
+  padding: 50px 0;;
 }
 .footer-col {
   width: 25%;
@@ -924,6 +955,10 @@ z-index: 0;
   background-color: #ffffff;
 }
 
+
+/* Rest of your styles */
+
+
 /*responsive*/
 @media (max-width: 767px) {
   .footer-col {
@@ -936,3 +971,88 @@ z-index: 0;
     width: 100%;
   }
 }
+.loginbackground{
+  z-index: -1;
+  background-image: url("/public/duelyst-video-games-multiple-display-wallpaper-f1246a5a00be4512e0622354dede60ad.jpg");
+overflow: hidden;
+width: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+height: 50vh;
+position: relative;
+transform: skewY(5deg);
+-webkit-transform: skewY(5deg);
+-moz-transform: skewY(5deg);
+-ms-transform: skewY(5deg);
+-o-transform: skewY(5deg);
+margin-top: -5%;
+
+margin-bottom: 20%;
+}
+@media screen and (max-width: 768px) {
+  .loginbackground{
+    margin-bottom: 65%;
+  }
+
+  
+}
+.loginbackground::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(
+  0,
+  0,
+  0,
+  0.2
+); /* Adjust the alpha value for the overlay */
+mix-blend-mode: overlay; /* Try different blending modes */
+}
+
+.loginlayout {
+width: 100%;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+background-color: rgba(0, 0, 0, 0.795);
+background-size: cover;
+height: 100vh;
+position: relative;
+}
+
+.loginlayout::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(
+  0,
+  0,
+  0,
+  0.3
+); /* Adjust the alpha value for the overlay */
+mix-blend-mode: overlay; /* Try different blending modes */
+}
+.login-positon{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+width: 100%;
+ ;
+  border-radius: 10px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+

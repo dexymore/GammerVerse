@@ -12,7 +12,7 @@ const PhotoCarousel = ({photos}) => {
       items: 2, // Number of items at screen width 768px and above
     },
     1200: {
-      items: 2, // Number of items at screen width 1200px and above
+      items: 3, // Number of items at screen width 1200px and above
     },
     
     
@@ -31,10 +31,10 @@ const PhotoCarousel = ({photos}) => {
         <path d="M741,116.23C291,117.43,0,27.57,0,6V120H1200V6C1200,27.93,1186.4,119.83,741,116.23Z" class="shape-fill"></path>
     </svg>
 </div>
-    <OwlCarousel className="owl-theme carousels-styles" responsive={responsiveOptions} {...owlOptions} >
+    <OwlCarousel className="owl-theme " responsive={responsiveOptions} {...owlOptions} >
     
       {/* Your carousel slides */}
-      {photos.map((i)=><div className='item'>
+      {photos.map((i)=><div className='owl-images'>
 <img src={i.image}></img>
 </div>
 

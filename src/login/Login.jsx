@@ -57,7 +57,13 @@ function subMit(e)
 
 
 return (
-  <div className='container padsT flex-column login d-flex align-items-center justify-content-center my-5 login p-5 mt-5 '>
+  <>
+  <div className='position-relative'>
+  <div className='loginbackground'>
+    <div className='loginlayout'></div>
+  </div>
+  <div className="login-positon">
+  <div className='container padsT flex-column login d-flex align-items-center justify-content-center my-5 login p-5 mt-5  '>
     {error.length > 0 ? <div className='mt-5 alert alert-danger m-1'>{error}</div> : ""}
     <form onSubmit={subMit} className='w-75'>
       <div className="form-group mt-5">
@@ -71,7 +77,7 @@ return (
       <button type='submit' className='btn btn-outline-info mt-3'> {loading === true ? <i className="fas fa-spinner fa-spin "></i> : 'login'}</button>
     </form>
     <p className='text-light mt-2 w-100'>don't you have an account? <span><a className="nav-link active text-muted cursorpointer" onClick={registernavigation}>register</a></span></p>
-  </div>
+ </div> </div></div></>
 );
 
 // return (

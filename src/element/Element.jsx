@@ -20,7 +20,7 @@ return (
                     <p className="">{item.short_description.split(" ").splice(0, 10).join(" ")}...</p>
                 </div>
                 <ul className=" d-flex flex-row text-white justify-content-between firstulcard">
-                    <li className="list-group-item ">{item.platform}</li>
+                    <li className="list-group-item mb-2">{item.platform}</li>
                     {/* <li className="list-group-item ">{item.developer}</li> */}
                     <li className="list-group-item ">{item.release_date}</li>
                 </ul>

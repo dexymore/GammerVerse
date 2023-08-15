@@ -91,36 +91,36 @@ sendToApi() //if all goooooood 😜 send data to api
 <small  className="mt-5 form-text text-muted"> Password must be at least 4 characters, no more than 8 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.</small>
     <form onSubmit={submitdata}>
   <div className="form-group">
-    <label for="first_name" className=' mt-2 mb-3 text-light'><h5>first name</h5></label>
-    <input className="form-control" onChange={changeinfo} id="first_name" name='first_name' ></input>
+    
+    <input className="form-control mt-4" placeholder="firstname" onChange={changeinfo} id="first_name" name='first_name' ></input>
     <small className="form-text text-muted"> {erorList.filter((err)=>err.context.label=="first_name")[0]?.message}</small>
   </div>
   <div className="form-group">
-    <label for="last_name " className=' mt-2 mb-3 text-light'><h5>last name</h5></label>
-    <input className="form-control" id="last_name" onChange={changeinfo} name='last_name' ></input>
+
+    <input className="form-control mt-4" placeholder="lastname"id="last_name" onChange={changeinfo} name='last_name' ></input>
     <small className="form-text text-muted"> {erorList.filter((err)=>err.context.label=="last_name")[0]?.message}</small>
   </div>
   <div className="form-group">
-    <label for="email" className=' mt-2 mb-3 text-light'><h5>Email address</h5></label>
-    <input className="form-control" type="email" onChange={changeinfo} id="email" name='email' ></input>
+  
+    <input className="form-control mt-4" placeholder='email' type="email" onChange={changeinfo} id="email" name='email' ></input>
     <small className="form-text text-muted"> {erorList.filter((err)=>err.context.label=="email")[0]?.message}</small>
   </div>
  
   <div className="form-group">
-    <label for="age " className=' mt-2 mb-3 text-light'><h5>age</h5></label>
-    <input className="form-control" onChange={changeinfo} id="age" name='age' ></input>
+   
+    <input className="form-control mt-4" onChange={changeinfo} placeholder='age' id="age" name='age' ></input>
     <small className="form-text text-muted"> {erorList.filter((err)=>err.context.label=="age")[0]?.message } </small> 
   </div>
 
   <div className="form-group">
-    <label for="password" className=' mt-2 mb-3 text-light'><h5>password</h5></label>
-    <input className="form-control" type="password" onChange={changeinfo} id="password" name='password' ></input>
+
+    <input className="form-control mt-4" placeholder=' password' type="password" onChange={changeinfo} id="password" name='password' ></input>
     <small className="form-text text-muted"> {erorList.filter((err)=>err.context.label=="password")[0]?"password invlaid":""}</small>
   </div>
 <button type='submit' className='btn btn-outline-info mt-5'> {loading==true?<i className="fas fa-spinner fa-spin "></i>:'register'}</button>
 
 </form>
-    
+ <p className='text-light mt-2 w-100'>already have an account? <span><a className="nav-link active text-muted cursorpointer" href='/login'>login</a></span></p>
     </div>
 
 </div>

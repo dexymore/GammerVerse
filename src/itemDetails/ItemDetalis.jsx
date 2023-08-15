@@ -69,7 +69,7 @@ return (
 </div>
       <div className='row justify-content-center align-items-center text-center'>
       
-        <div className='col-md-5 '>
+        <div className='col-md-5 descriptionparent'>
           <div className='w-75'>
             {paragraphs.map((item, index) => (
               <p className='gamedescription' key={index}>
@@ -82,7 +82,7 @@ return (
           
           {gameDetails.minimum_system_requirements ? (
             <ul className='list-group d-flex flex-column list-group-flush'>
-            <div className='heading-parent'> <h3 className='text-muted fw-bold mb-5'>Minimum System Requirements</h3></div>
+            <div className='heading-parent'> <h3 className='text-white fw-bold mb-5'>Minimum System Requirements</h3></div>
              
               <div className='row d-flex flex-row gx-0'>
   <div className='col-md-6'>
@@ -146,8 +146,11 @@ return (
       </div>
   
     </div>
-    {gameDetails.screenshots!=null||undefined?<PhotoCarousel photos={gameDetails.screenshots}></PhotoCarousel>:<h5>no available screens</h5>}
-  <div className='container-fluid play-section position-relative'>
+    {}
+    {gameDetails.screenshots!=null||undefined?
+    
+    <PhotoCarousel photos={gameDetails.screenshots} ></PhotoCarousel>:<Notfound type={"Screenshots are not available for this game"}></Notfound>
+}  <div className='container-fluid play-section position-relative'>
     <div class="wave3">
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M741,116.23C291,117.43,0,27.57,0,6V120H1200V6C1200,27.93,1186.4,119.83,741,116.23Z" class="shape-fill"></path>
