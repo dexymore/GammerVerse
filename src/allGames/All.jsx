@@ -4,6 +4,7 @@ import  { useEffect } from 'react'
 import axios from 'axios'
 import Element from '../element/Element';
 import { useState } from 'react';
+import MotionFarm from '../motionfarm/Motion'; 
 function All() {
 
    const [count, setcount] = useState(20)
@@ -47,9 +48,10 @@ setcount(count+20)
     
      return (
    <>
+   
    <div className='container '>  
    
-   <div className='row justify-content-center align-items-center text-center'>
+   <div className='row justify-content-center align-items-center text-center '>
    
    {all.length>0?all.slice(0,count).map((item,index)=><Element key={index}  item={item}/>):<i className='fas text-light reg fa-spinner fa-spin fa-4x'></i>}
    

@@ -17,6 +17,8 @@ import Notfound from "./notfound/Notfound";
 import Landing from "./landing/landing";
 import ParticlesBackground from "./particesBackground/particesBackground";
 
+
+
 function App() {
   const [userdata, setuserdata] = useState(null);
   function saveUserData() {
@@ -34,7 +36,7 @@ function App() {
     {
       path: "/",
       element: <Layout setuserdata={setuserdata} userdata={userdata}></Layout>,
-      errorElement: <Notfound></Notfound>,
+      errorElement: <Notfound type={"page not found"} ></Notfound>,
       children: [
         { index: true, element: <Landing></Landing>  },
         { path:"login", element: <Login></Login> },

@@ -8,8 +8,8 @@ function Landing() {
       <div className="backg">
         <div className="layout"> 
        
-          <div class="container d-flex align-items-center h-100  ">
-            <div class="hero m-auto text-center">
+          <div className="container d-flex align-items-center h-100  ">
+            <div className="hero m-auto text-center">
             <Particle />
               <h1>Welcome at  <span> </span></h1>
              <CustomH1 className="logo">GamerVerse</CustomH1>

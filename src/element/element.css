@@ -1,0 +1,153 @@
+.bgcard {
+    background: #121212 !important;
+    color: #fff;
+    border: #54b3d65b solid .1px !important; 
+    overflow: hidden; /* Ensures the image doesn't overflow when magnified */
+}
+
+
+
+ 
+  
+  
+  .card {
+    border-radius: 4px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+    transition: 0.3s transform, 0.3s box-shadow, 0.3s -webkit-transform;
+    cursor: pointer;
+    -webkit-transition: 0.3s transform, 0.3s box-shadow, 0.3s -webkit-transform;
+    -moz-transition: 0.3s transform, 0.3s box-shadow, 0.3s -webkit-transform;
+    -ms-transition: 0.3s transform, 0.3s box-shadow, 0.3s -webkit-transform;
+    -o-transition: 0.3s transform, 0.3s box-shadow, 0.3s -webkit-transform;
+    -webkit-border-radius: ;
+    -moz-border-radius: ;
+    -ms-border-radius: ;
+    -o-border-radius: ;
+  }
+  
+ 
+  .card-title {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    ; 
+/* Add some spacing between the image and title */
+flex-direction: column;
+justify-self: start;
+justify-content: start;
+align-items: start;
+color: white;
+}
+
+.card-title h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.334;
+    letter-spacing: 0em;
+    text-align: left;
+    font-family: "vt323";
+    text-decoration: underline;
+color: #fff;
+}
+.card-title p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1,1rem;
+    font-weight: 300;
+    line-height: 1.334;
+    letter-spacing: 0em;
+    text-align: left;
+    ;
+color: #fff;}
+
+
+.firstulcard
+{
+    border-bottom: #54b3d65b solid .1px !important; 
+margin: 2%;
+}
+.secondulcard{
+    margin: 2%;
+}
+.cardimagecover{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #121212;
+    border: #54b3d65b solid .1px !important; 
+}
+.card-container {
+    position: relative;
+    width: 300px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.image-container img {
+    margin-top: 5%;
+    max-width: 80%; /* Initial width */
+    height: 200px; /* Initial height */
+    transition: max-width 0.3s ease; /* Adding a transition for smooth effect */
+}
+.cardimagecover {
+    position: absolute;
+    width: 80%;
+    margin-top: 5%;
+    height: 90%;
+    z-index: 1;
+    background-color: hsl(216, 50%, 16%);
+    /*Overlaycolor*/opacity: 0.5;
+    display:none;
+    transition: all 5s ease;
+    -webkit-transition: all 5s ease;
+    -moz-transition: all 5s ease;
+    -ms-transition: all 5s ease;
+    -o-transition: all 5s ease;
+   
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card{
+    transition: box-shadow 0.3s ease; 
+
+}
+.icon{
+    position: absolute;
+    display: none !important;
+    color: #fff;
+    z-index: 5;
+}
+
+.card:hover .cardimagecover {
+    display: block;
+    /*Showtheoverlayoncardhover*/transition: all 5s ease;
+    -webkit-transition:;
+    -moz-transition:;
+    -ms-transition:;
+    -o-transition:;
+}
+.card:hover .icon{
+    display: block !important;
+    transition: all 5s ease;
+    -webkit-transition:;
+    -moz-transition:;
+    -ms-transition:;
+    -o-transition:;
+}

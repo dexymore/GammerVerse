@@ -1,92 +1,186 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
- import { useState } from 'react'
- import { useEffect } from 'react'
-import {gameSpecs} from "../FetchData"
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import CustomH1 from '../Logo';
 import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-import axios from 'axios'
-function ItemDetalis() {
-  let idParam=useParams()
-  const [gameDetails, setgameDetails] = useState({})
+import PhotoCarousel from '../photo carousel/PhotoCarousel';
+import { Link } from 'react-router-dom';
+import Notfound from '../notfound/Notfound';
 
-  let gameSpecsData= async function(param)
-  {
+function ItemDetails() {
+  const [gameDetails, setGameDetails] = useState({});
+  const [paragraphs, setParagraphs] = useState([]);
+  
+  const idParam = useParams();
+
+  const gameSpecsData = async (param) => {
     const options = {
-     
-      params: {id: `${param}`},
+      params: { id: param },
       headers: {
         'X-RapidAPI-Key': `${process.env.REACT_APP__API_KEY}`,
         'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
       }
     };
-  
-  
-     const {data}= await axios.get('https://free-to-play-games-database.p.rapidapi.com/api/game',options)
-  
-  setgameDetails(data)
-  }
 
+    try {
+      const response = await axios.get(
+        'https://free-to-play-games-database.p.rapidapi.com/api/game',
+        options
+      );
+      setGameDetails(response.data);
+      setParagraphs(response.data.description.split('\n'));
+    } catch (error) {
+      console.error('Error fetching game data:', error);
+    }
+  };
 
   useEffect(() => {
+    gameSpecsData(idParam.id);
+  }, [idParam.id]);
+
+  const backgroundStyles = {
+    backgroundImage: `url(${gameDetails.thumbnail})`
+  };
+
+console.log(gameDetails)
+
+return (
+  <>
+<div className='position-relative'>
+  <div className='gamebackground' style={backgroundStyles}>
+    <div className='layoutgame'>
+      <div className='container d-flex align-items-center h-100 '>
+        <div className='hero m-auto text-center'></div>
+      </div>
+    </div>
+    <CustomH1 className='logo game-name'>{gameDetails.title}</CustomH1>
+    <CustomH1 className='logo game-genre'>{gameDetails.genre}</CustomH1>
+    <CustomH1 className='logo game-publisher'>{gameDetails.publisher}</CustomH1>
+  </div>   
+
+</div>
+
+      {/* <div className='spacer layer1'></div> */}
+    <div className='container-fluid mt-3 position-relative '>
+    <div class="wave1">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M741,116.23C291,117.43,0,27.57,0,6V120H1200V6C1200,27.93,1186.4,119.83,741,116.23Z" class="shape-fill"></path>
+    </svg>
+</div>
+      <div className='row justify-content-center align-items-center text-center'>
+      
+        <div className='col-md-5 '>
+          <div className='w-75'>
+            {paragraphs.map((item, index) => (
+              <p className='gamedescription' key={index}>
+                {item}
+              </p>
+            ))}
+          </div>
+        </div>
+        <div className='col-md-5 mt-5 '>
+          
+          {gameDetails.minimum_system_requirements ? (
+            <ul className='list-group d-flex flex-column list-group-flush'>
+            <div className='heading-parent'> <h3 className='text-muted fw-bold mb-5'>Minimum System Requirements</h3></div>
+             
+              <div className='row d-flex flex-row gx-0'>
+  <div className='col-md-6'>
+    <div className=' pads card-small'>
+      <div className='card-minimum card-about'>
+      <div >  
+      <i className="border-a border-5 rounded-circle ap-icon  fa-solid fa-gears fa-2x"></i>  
+                   </div>
+                   <h5 class="m-1">os</h5>
+                     <h6 class="m-2">{gameDetails.minimum_system_requirements.os}</h6>
+      </div>
+    </div>
+  </div>
+  <div className='col-md-6'>
+    <div className=' pads card-small'>
+      <div className='card-minimum card-about'>
+      <div >  
+                      <i class="border-a border-5 rounded-circle ap-icon fa-solid fa-gamepad  fa-2x"></i>  
+                   </div>
+                     <h5 class="m-1">grapgics</h5>
+                     <h6 class="m-2">{gameDetails.minimum_system_requirements.graphics}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div className='row d-flex flex-row gx-0'>
+  <div className='col-md-6'>
+    <div className=' pads card-small'>
+      <div className='card-minimum card-about'>
+      <div >  
+      <i className="fa-solid fa-microchip fa-2x border-a border-5 rounded-circle ap-icon "></i>
+                   </div>
+                   <h5 class="m-1">processor</h5>
+                     <h6 class="m-2">{gameDetails.minimum_system_requirements.processor}</h6>
+      </div>
+    </div>
+  </div>
+  <div className='col-md-6'>
+    <div className=' pads card-small'>
+      <div className='card-minimum card-about'>
+      <div >  
+                      <i class="border-a border-5 rounded-circle ap-icon  fa-solid fa-memory  fa-2x"></i>  
+                   </div>
+                     <h5 class="m-1">memory</h5>
+                     <h6 class="m-2">{gameDetails.minimum_system_requirements.memory}</h6>
+      </div>
+    </div>
+  </div>
   
-  gameSpecs(idParam.id,setgameDetails)
+</div>
 
-  }, [])
+            </ul>
+            
+            
+          ) : (
+            <Notfound type={"Requirments are not specified for this game"}></Notfound>
+          )}
+        </div>
+      </div>
   
-  return (<>
-    <div className='row m-5 gy-4'>
+    </div>
+    {gameDetails.screenshots!=null||undefined?<PhotoCarousel photos={gameDetails.screenshots}></PhotoCarousel>:<h5>no available screens</h5>}
+  <div className='container-fluid play-section position-relative'>
+    <div class="wave3">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M741,116.23C291,117.43,0,27.57,0,6V120H1200V6C1200,27.93,1186.4,119.83,741,116.23Z" class="shape-fill"></path>
+    </svg>
 
-
-<div className='col-md-4 mt-5 mx-2'>
-
-<img className='mt-5 w-100' src= {gameDetails.thumbnail}></img>
-<a href={gameDetails.game_url} className="btn mt-2 btn-primary px-5 " target="_blank">Play now</a>
 
 </div>
-
-<div className='col-md-7 mt-5'>
-<div>
-<h1 className='mt-4 w-75 text-warning'>{gameDetails.title}</h1>
-<h3 className='mt-4 w-75 text-info'><span className='text-muted'>category:</span>{gameDetails.genre}</h3>
-<p className='text-light w-75'>{gameDetails.description} </p>
-<div>
-{gameDetails.minimum_system_requirements!=undefined?<ul className='list-group list-group-flush'><h4 className='text-muted fw-bold'>minimum system requirments</h4>
-
-<li className="list-group-item text-muted p-1"><p><span className="text-dark p-1">os:</span>{gameDetails.minimum_system_requirements.os}</p></li>
-<li className="list-group-item text-muted p-1"><p> <span className="text-dark p-1">graphics:</span> {gameDetails.minimum_system_requirements.graphics}</p></li>
-<li className="list-group-item text-muted p-1"><p> <span className="text-dark p-1">processor:</span> {gameDetails.minimum_system_requirements.processor}</p></li>
-<li className="list-group-item text-muted p-1"><p> <span className="text-dark p-1">memory:</span> {gameDetails.minimum_system_requirements.memory}</p></li>
-<li className="list-group-item text-muted p-1"><p> <span className="text-dark p-1">storage:</span> {gameDetails.minimum_system_requirements.storage}</p></li>
-
-
-
-
-</ul>
-:<h5 className='text-light'> requirments is not specified for this game</h5>}
+ 
+ 
+ 
+  </div>
+<div className='container m-auto mb-5'>
+  <div className='mt-5  m-auto  w-75 justify-content-center align-items-center text-center'>
+  <div class="play_now_card_item">
+            
+      <a href={gameDetails.game_url} class="play_now_card-item_link" target='_blank'>
+        <div class="play_now_card-item_bg"></div>
+<div className='play_now_card_image' >
+<img src={gameDetails.thumbnail} className=' rounded'></img>
 </div>
-{gameDetails.screenshots!=null||undefined?<OwlCarousel
-className='owl-theme'
-items={1}
-autoplay
+        <div class="play_now_card-item_title text-white">
+  play now for free
 
-dots
-loop
->
-{gameDetails.screenshots.map((i)=><div className='item'>
-<img src={i.image}></img>
-</div>)}
+        </div>
 
-
-
-
-</OwlCarousel>:<h5>no available screens</h5>}
-
+      </a>
+    </div>
+  </div>
 </div>
-</div>
-    </div></>
-  )
-}
 
-export default ItemDetalis
+  <div/>
+  </>
+);
+          }
+
+export default ItemDetails;

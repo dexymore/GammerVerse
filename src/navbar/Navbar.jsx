@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 import CustomH1 from '../Logo';
 import jwtDecode from "jwt-decode";
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 //the navbar receive two parameters one is responsible for check wether the user is logged in or not and other to log out
 // dropdown menu is used with linktags instead of  normal a tags to navigate user to his desired page
 function Navbar({userdata ,logout}) {
@@ -20,36 +22,53 @@ if( localStorage.getItem("userToken"))
   console.log (name)
   }
 
+  const [isTogglerOpen, setIsTogglerOpen] = useState(false);
+  const location = useLocation();
+
+  const toggleNavbar = () => {
+    setIsTogglerOpen(!isTogglerOpen);
+  };
+
+  useEffect(() => {
+    // Automatically close the navbar toggler when the route changes
+    setIsTogglerOpen(false);
+  }, [location.pathname]);
+
 
 return (
   <>
     {userdata ? (
       <>
-      <nav className="navbar overflowX-hidden navbar-expand-lg navbar-light d-flex justify-content-center fixed-top" id={navbarStyles.navbarcolor}>
-        <div className="container">
-          <div className='col-3 offset-1'>
-            <div className='row loggedinNav'></div>
-            <Link className="nav-link active" to="Home"><CustomH1 className="logo">GamerVerse</CustomH1></Link>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-          </div>
+      {
+      
+        <nav className="navbar navbar-expand-lg navbar-light fixed-top"   id={navbarStyles.navbarcolor}>
+ 
+   <div className='logo-navbar w-50'>
+   <Link className="navbar-brand " to="Home">
+      <CustomH1 className="logo">GamerVerse</CustomH1>
+    </Link>
+   </div>
+    <button className="navbar-toggler " onClick={toggleNavbar} type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
 
-          <div className="collapse navbar-collapse col-4 offset-4" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link className="nav-link active" to="All">all</Link>
-              </li>
-              <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" role="button" to="Platforms" data-bs-toggle="dropdown" aria-expanded="false">
+    <div className={`collapse navbar-collapse mobilenav navbar-toggler-container ${isTogglerOpen? "": "none"}`} id="navbarSupportedContent">
+     
+    <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <Link className="nav-link active" to="All">all</Link>
+        </li>
+        <li className="nav-item dropdown">
+        <Link className="nav-link dropdown-toggle" role="button" to="Platforms" data-bs-toggle="dropdown" aria-expanded="false">
                   platform
                 </Link>
                 <ul className="dropdown-menu">
                   <li><Link onClick={getName} className="dropdown-item text-dark" name="pc" to="pc">pc</Link></li>
                   <li><Link onClick={getName} className="dropdown-item text-dark" name="browser" to="browser">browser</Link></li>
                 </ul>
-              </li>
-              <li className="nav-item dropdown">
+         
+        </li>
+        <li className="nav-item dropdown">
                 <Link className="nav-link dropdown-toggle" role="button" to="Platforms" data-bs-toggle="dropdown" aria-expanded="false">
                   category
                 </Link>
@@ -75,30 +94,30 @@ return (
                   <li><Link className="dropdown-item text-dark" to="release-date">release-date</Link></li>
                 </ul>
               </li>
-              <li className="nav-item">
-                <a className="btn btn-danger" onClick={logout}>log out</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        {/* Other dropdowns */}
+        <li className="nav-item">
+          <a className="btn btn-danger" onClick={logout}>log out</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+      
+      
+      }
     </>
 
     ) : (
       <>
       <>
       <>
-      <nav className="navbar overflowX-hidden navbar-expand-lg navbar-light fixed-top" id={navbarStyles.navbarcolor}>
-        <div className="container">
-          <div className="row w-100 justify-content-center">
-            <div className="col-12 text-center">
-              <Link className="nav-link active" to="Home">
-                <CustomH1 className="logo">GamerVerse</CustomH1>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <nav className="navbar navbar-expand-lg navbar-light fixed-top" id={navbarStyles.navbarcolor}>
+  <div className="container">
+    <div className="navbar-brand text-center w-100">
+      <CustomH1 className="logo">GamerVerse</CustomH1>
+    </div>
+  </div>
+</nav>
+
     </>
     </>
     </>
