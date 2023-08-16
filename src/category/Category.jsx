@@ -5,6 +5,8 @@ import axios from 'axios'
 import Element from '../element/Element';
 import { useState } from 'react';
 
+import SkelatonCards from '../element/SkelatonCards';
+
 function Category({category}) {
 
 
@@ -58,7 +60,7 @@ let setDataCategory= async function(param){
       
       <div className='row justify-content-center align-items-center text-center'>
    
-   {all.length>0?all.slice(0,count).map((item,index)=><Element key={index}  item={item}/>):<i className='fas text-light reg fa-spinner fa-spin fa-4x'></i>}
+   {all.length>0?all.slice(0,count).map((item,index)=><Element key={index}  item={item}/>):Array.from({ length: 20 }).map((_, index) => <SkelatonCards key={index} numberOfCards={1} />)}
       </div> 
      
       {all.length>1 ? <button className="m-3 btn w-25 btn-primary" onClick={twenty}>more </button>:""}

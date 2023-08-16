@@ -151,3 +151,24 @@ margin: 2%;
     -ms-transition:;
     -o-transition:;
 }
+
+.skelaton {
+    background-color: #24262b;
+    animation: skelaton-loading 1.5s infinite linear;
+    -webkit-animation: skelaton-loading 1.5s infinite linear;
+    /*Addedmissingdetails*/
+}
+
+.skelaton-cover {
+    width: 250px;
+    height: 180px;
+}
+
+@keyframes skelaton-loading {
+    0% {
+        background-color: hsla(215, 58%, 12%, 0.993);
+    }
+    100% {
+        background-color: hsla(214, 45%, 22%, 0.705);
+    }
+}

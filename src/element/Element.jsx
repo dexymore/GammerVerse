@@ -13,7 +13,8 @@ return (
             
                 </div>   
                  <i class="fa-solid fa-eye fa-3x icon"></i>
-                    <img src={item.thumbnail} className="rounded" alt="Item Thumbnail" />
+        
+                    <img src={item.thumbnail} className="rounded " alt="Item Thumbnail" />
                 </div>
                 <div className="card-body card-title">
                     <h3 className="">{item.title}</h3>
@@ -34,3 +35,6 @@ return (
 }
 
 export default Element
+
+
+

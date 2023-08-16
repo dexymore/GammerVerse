@@ -19,7 +19,7 @@ body {
 }
 .banner {
   height: auto;
-  left: 16%;
+
   margin: 0;
   min-height: 100%;
   min-width: 674px;
@@ -30,6 +30,23 @@ body {
 
   background-repeat: no-repeat;
 }
+@media screen and (min-width: 0) and (max-width: 600px) {
+  .banner {
+    height: auto;
+
+    margin: 0;
+    min-height: 100%;
+
+    padding: 0;
+margin-left:14% ;
+    position: relative;
+    width: 100%;
+
+    background-repeat: no-repeat;
+  }
+}
+  
+
 .welcome {
   position: absolute;
   top: 50%;
@@ -1056,3 +1073,35 @@ width: 100%;
 }
 
 
+.skelaton {
+  background-color: #24262b;
+  animation: skelaton-loading 1s infinite linear;
+  -webkit-animation: skelaton-loading 1s infinite linear; /* Added missing details */
+  opacity: 0.7;
+}
+
+.skelaton-text {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 10px;
+  height:.5;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.skelaton-cover {
+  width: 200px;
+  height: 180px;
+}
+
+@keyframes skelaton-loading {
+  0% {
+      background-color: hsla(215, 58%, 12%, 0.993);
+  }
+  100% {
+      background-color: hsla(214, 45%, 22%, 0.705);
+  }
+}
