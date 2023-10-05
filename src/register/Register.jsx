@@ -120,7 +120,7 @@ sendToApi() //if all goooooood 😜 send data to api
 <button type='submit' className='btn btn-outline-info mt-5'> {loading==true?<i className="fas fa-spinner fa-spin "></i>:'register'}</button>
 
 </form>
- <p className='text-light mt-2 w-100'>already have an account? <span><a className="nav-link active text-muted cursorpointer" href='/login'>login</a></span></p>
+ <p className='text-light mt-2 w-100'>already have an account? or you are a recuriter login as a guest to save your time from here <span><a className="nav-link active text-muted cursorpointer" href='/login'>login</a></span></p>
     </div>
 
 </div>

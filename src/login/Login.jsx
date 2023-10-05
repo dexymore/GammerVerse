@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom'
  import { useEffect } from 'react'
 
 function Login({saveData}) {
-
+const guestEmail="guest@gmail.com"
+const guestPassword="Test1234"
 let regsterNavigate=useNavigate()
 function registernavigation()
 {
@@ -53,7 +54,11 @@ function subMit(e)
 
 
 
-
+const handleGuest=function(){
+  document.getElementById("email").value=guestEmail
+  document.getElementById("password").value=guestPassword
+  
+}
 
 
 return (
@@ -74,7 +79,11 @@ return (
         <label htmlFor="password"><h3 className='text-muted mt-2 mb-3'></h3></label>
         <input className="form-control" type="password" onChange={getUserinfo} id="password" placeholder='password' name='password'></input>
       </div>
+      <div className="d-flex align-items-center justify-content-center flex-column">
       <button type='submit' className='btn btn-outline-info mt-3'> {loading === true ? <i className="fas fa-spinner fa-spin "></i> : 'login'}</button>
+      <button type='button' className='btn btn-outline-info mt-3 ml-3' onClick={handleGuest}>login as a guest</button>
+
+      </div>
     </form>
     <p className='text-light mt-2 w-100'>don't you have an account? <span><a className="nav-link active text-muted cursorpointer" onClick={registernavigation}>register</a></span></p>
  </div> </div></div></>
