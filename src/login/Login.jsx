@@ -27,6 +27,9 @@ userdata[e.target.name]=e.target.value;
 setuserinfo(userdata)
 }
 let navigate= useNavigate()
+
+
+
 async function sendToApi()
 {
   let { data } = await axios.post('https://movies-api.routemisr.com/signin', userinfo);
@@ -57,6 +60,12 @@ function subMit(e)
 const handleGuest=function(){
   document.getElementById("email").value=guestEmail
   document.getElementById("password").value=guestPassword
+
+  setuserinfo( {email:"guest@gmail.com",
+  password:"Test1234"})
+
+
+
   
 }
 
@@ -77,11 +86,11 @@ return (
       </div>
       <div className="form-group mt-2 ">
         <label htmlFor="password"><h3 className='text-muted mt-2 mb-3'></h3></label>
-        <input className="form-control" type="password" onChange={getUserinfo} id="password" placeholder='password' name='password'></input>
+        <input className="form-control" type="text" onChange={getUserinfo} id="password" placeholder='password' name='password'></input>
       </div>
       <div className="d-flex align-items-center justify-content-center flex-column">
-      <button type='submit' className='btn btn-outline-info mt-3'> {loading === true ? <i className="fas fa-spinner fa-spin "></i> : 'login'}</button>
-      <button type='button' className='btn btn-outline-info mt-3 ml-3' onClick={handleGuest}>login as a guest</button>
+      <button type='submit' className='btn btn-outline-info mt-3 px-5'> {loading === true ? <i className="fas fa-spinner fa-spin "></i> : 'login'}</button>
+      <button type='button' className='btn btn-outline-success mt-3 ml-3' onClick={handleGuest}>login as a guest</button>
 
       </div>
     </form>
